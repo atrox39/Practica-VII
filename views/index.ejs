@@ -1,0 +1,65 @@
+<%- include('header.ejs') %>
+    <div class="container mt-4">
+        <h3>Crear respaldos de MySQL con MySQLDump</h3>
+        <form action="/" method="post">
+            <div class="row mt-4">
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label>Servidor</label>
+                        <input class="form-control" type="text" name="server" value="localhost" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Puerto</label>
+                        <input class="form-control" type="text" name="port" value="3306" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input class="form-control" type="text" name="user" value="root" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input class="form-control" type="password" name="password" value="">
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="submit" value="Configurar parametros generales" class="btn btn-secondary form-control">
+                    </div>
+                </div>
+                <% if(typeof message != 'undefined'){ %>
+                <div class="col-md-12">
+                    <div class="form-group text-center">
+                        <span class="text-success"><%= message %></span>        
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </form>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <a href="/seleccionar_base" class="btn btn-primary form-control">Respaldar base de datos especifica</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/respaldar_bases" class="btn btn-primary form-control">Respaldar todas las bases de datos</a>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <a href="/seleccionar_tabla" class="btn btn-primary form-control">Respaldar una tabla especifica</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/restaurar" class="btn btn-primary form-control">Restaurar respaldo</a>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <a href="/ayuda" class="btn btn-primary form-control">Comando Ayuda MySQLDump</a>
+            </div>
+        </div>
+    </div>
+    <%- include('footer.ejs') %>

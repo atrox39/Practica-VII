@@ -1,0 +1,30 @@
+<%- include('header.ejs') %>
+<div class="container mt-4">
+    
+    <div class="row justify-content-center">
+        <form action="/restaurar" class="col-md-6" method="post">
+            <h4>Restaurar un respaldo de base de datos o tablas</h4>
+            <div class="form-group">
+                <label>Respaldos</label>
+                <select name="file" class="form-control">
+                <% for(var i=0;i<respaldos.length;i++){ %>
+                    <option value="<%= respaldo_path[i] %>"><%= respaldos[i] %></option>
+                <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nombre de la base de datos</label>
+                <input type="text" name="database" placeholder="Escribir SIN_DATA permite executar un respaldo de tipo todas las bases de datos" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Restaurar"  class="form-control btn btn-success">
+            </div>
+            <% if(typeof message !== 'undefined'){ %>
+                <div class="form-group">
+                    <span class="text-success"><%= message %></span>
+                </div>
+            <% } %>
+        </form>
+    </div>
+</div>
+<%- include('footer.ejs') %>

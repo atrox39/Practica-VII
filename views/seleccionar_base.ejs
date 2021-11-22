@@ -1,0 +1,21 @@
+<%- include('header.ejs') %>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form action="/seleccionar_base" method="post">
+                <div class="form-group">
+                    <label>Seleccione la base de datos a respaldar</label>
+                    <select class="form-control" name="database">
+                        <% for(var i=0; i<bases.length; i++){ %>
+                            <option value="<%= bases[i].Database %>"><%= bases[i].Database %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Seleccionar" class="btn btn-success form-control">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('footer.ejs') %>

@@ -1,0 +1,10 @@
+<%- include('header.ejs') %>
+<div class="container mt-4">
+    <h3>Comando de ayuda MySQLDump</h3>
+    <p>
+        <% for(var i=0;i<ayuda.length;i++) { %>
+            <div><%= ayuda[i] %></div>
+        <% } %>
+    </p>
+</div>
+<%- include('footer.ejs') %>
